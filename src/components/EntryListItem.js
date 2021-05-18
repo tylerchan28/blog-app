@@ -5,7 +5,7 @@ const EntryListItem = ({ entry, deleteEntry }) => {
         <div>
             <h3>{entry.title}</h3>
             <p>{entry.description}</p>
-            <p>{entry.dateCreated}</p>
+            <p>{entry.date}</p>
             <button onClick={() => deleteEntry(entry)}>Delete</button>
         </div>
     )

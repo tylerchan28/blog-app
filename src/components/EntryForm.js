@@ -7,7 +7,6 @@ const EntryForm = (props) => {
         id: uniqid(),
         title: "",
         description: "",
-        dateCreated: moment().format("MMMM Do YYYY, h:mm:ss a"),
     })
 
     const onTitleChange = (e) => {
@@ -28,14 +27,20 @@ const EntryForm = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        props.saveEntry(entry);
+        console.log(entry)
+        const dateCreated = moment().format("MMMM Do YYYY, h:mm:ss a");
+        console.log(dateCreated)
+        const submittedEntry = {
+            id: uniqid(), 
+            title: entry.title, 
+            description: entry.description,
+            date: dateCreated
+        }
+        props.saveEntry(submittedEntry);
         setEntry({
-            id: uniqid(),
             title: "",
             description: "",
-            dateCreated: moment().format("MMMM Do YYYY, h:mm:ss a"),
         })
-    
     }
 
     return (
@@ -43,7 +48,7 @@ const EntryForm = (props) => {
             <form onSubmit={onSubmit}>
                 <input 
                     type="text"
-                    placeholder="title"
+                    placeholder="Title"
                     autoFocus
                     value={entry.title}
                     onChange={onTitleChange}
@@ -51,7 +56,7 @@ const EntryForm = (props) => {
                 />
                 <input 
                     type="text"
-                    placeholder="description"
+                    placeholder="Add a new post here"
                     value={entry.description}
                     onChange={onDescriptionChange}
                 />
