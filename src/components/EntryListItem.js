@@ -1,13 +1,9 @@
 import React from "react";
 
-const EntryListItem = ({ entry, deleteEntry }) => {
+const EntryListItem = () => {
+    
     return (
-        <div>
-            <h3>{entry.title}</h3>
-            <p>{entry.description}</p>
-            <p>{entry.date}</p>
-            <button onClick={() => deleteEntry(entry)}>Delete</button>
-        </div>
+        <p>Entry list items.</p>
     )
 }
 

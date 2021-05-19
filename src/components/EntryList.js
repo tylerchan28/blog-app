@@ -1,34 +1,16 @@
-import React, { useState } from "react";
-import EntryForm from "./EntryForm";
+import React from "react";
 import EntryListItem from "./EntryListItem";
+import { connect } from "react-redux";
 
-const EntryList = () => {
-    let [entries, setEntries] = useState([]);
-    
-    const saveEntry = (newEntry) => {
-        const allEntries = [...entries, newEntry]
-        setEntries(allEntries)
-    }
-
-    const deleteEntry = (entryToRemove) => {
-        const allEntries = [...entries];
-        const withDeletedEntry = allEntries.filter((entry) => entryToRemove.id !== entry.id)
-        setEntries(withDeletedEntry);
-    }
-    
+const EntryList = (props) => {
     return (
         <div>
-            <EntryForm saveEntry={saveEntry}/>
             <p>Entry list:</p>
-            {entries.map((entry) => 
-                <EntryListItem 
-                    entry={entry}
-                    key={entry.id}
-                    deleteEntry={deleteEntry}
-                />
-            )}
+            <EntryListItem />
         </div>
     )
 }
+
+
 
 export default EntryList;
