@@ -27,9 +27,7 @@ const EntryForm = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(entry)
         const dateCreated = moment().format("l");
-        console.log(dateCreated)
         const submittedEntry = {
             id: uniqid(), 
             title: entry.title, 

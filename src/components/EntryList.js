@@ -6,11 +6,18 @@ const EntryList = (props) => {
     return (
         <div>
             <p>Entry list:</p>
-            <EntryListItem />
+            {props.entries.map((entry) => {
+                return <EntryListItem key={entry.id} {...entry}/>
+            })}
+
         </div>
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        entries: state.entries
+    }
+}
 
-
-export default EntryList;
+export default connect(mapStateToProps)(EntryList);

@@ -1,9 +1,12 @@
 import React from "react";
 
-const EntryListItem = () => {
-    
+const EntryListItem = ({ title, description, date }) => {
     return (
-        <p>Entry list items.</p>
+        <div>
+            <h3>{ title }</h3>
+            <p>{ description }</p>
+            <p>{ date }</p>
+        </div>
     )
 }
 

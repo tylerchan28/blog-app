@@ -7,6 +7,7 @@ const AddEntryPage = (props) => {
     const onSubmit = (entry) => {
         props.addEntry(entry)
         props.history.push("/dashboard")
+        console.log(entry)
     }
     return (
         <EntryForm onSubmit={onSubmit}/>
