@@ -5,8 +5,8 @@ import uniqid from "uniqid";
 const EntryForm = (props) => {
     const [entry, setEntry] = useState({
         id: uniqid(),
-        title: "",
-        description: "",
+        title: props.entry ? props.entry.title : "",
+        description: props.entry ? props.entry.description : "",
     })
 
     const onTitleChange = (e) => {
@@ -53,7 +53,7 @@ const EntryForm = (props) => {
                     required
                     className="title-input"
                 />
-                <textarea 
+                <input 
                     type="text"
                     placeholder="Add a new post here"
                     value={entry.description}

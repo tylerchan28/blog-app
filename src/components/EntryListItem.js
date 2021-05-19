@@ -1,12 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const EntryListItem = ({ title, description, date }) => {
+const EntryListItem = ({ title, description, date, id }) => {
     return (
-        <div>
-            <h3>{ title }</h3>
+        <Link to={`/edit/${id}`}>
+            <div>
+                <h3>{ title }</h3>
+                <p>{ date }</p>
+            </div>
             <p>{ description }</p>
-            <p>{ date }</p>
-        </div>
+        </Link>
     )
 }
 
