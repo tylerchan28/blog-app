@@ -1,14 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { editEntry, removeEntry } from "../actions/entries";
+import { startEditEntry, startRemoveEntry } from "../actions/entries";
 import EntryForm from "./EntryForm";
 const EditEntryPage = (props) => {
     const onSubmit = (entry) => {
-        props.editEntry(props.entry.id, entry)
+        props.startEditEntry(props.entry.id, entry)
         props.history.push("/dashboard")
     }
     const onRemove = () => {
-        props.removeEntry(props.entry.id)
+        props.startRemoveEntry(props.entry.id)
         props.history.push("/dashboard")
     }
     
@@ -37,7 +37,7 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    editEntry: (id, entry) => dispatch(editEntry(id, entry)),
-    removeEntry: (entryData) => dispatch(removeEntry(entryData))
+    startEditEntry: (id, entry) => dispatch(startEditEntry(id, entry)),
+    startRemoveEntry: (entryData) => dispatch(startRemoveEntry(entryData))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(EditEntryPage);

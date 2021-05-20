@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import moment from "moment";
-import uniqid from "uniqid";
 
 const EntryForm = (props) => {
     const [entry, setEntry] = useState({
-        id: uniqid(),
         title: props.entry ? props.entry.title : "",
         description: props.entry ? props.entry.description : "",
     })
@@ -28,8 +26,7 @@ const EntryForm = (props) => {
     const onSubmit = (e) => {
         e.preventDefault();
         const dateCreated = moment().format("l");
-        const submittedEntry = {
-            id: uniqid(), 
+        const submittedEntry = { 
             title: entry.title, 
             description: entry.description,
             date: dateCreated

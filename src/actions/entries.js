@@ -5,14 +5,9 @@ export const addEntry = (entry) => ({
     entry
 })
 
-export const startAddEntry = (entryData = {}) => {
+export const startAddEntry = ({ title="", description="", date="" } = entryData ) => {
    return (dispatch, getState) => {
        const uid = getState().auth.uid;
-       const {
-           title = "",
-           description = "",
-           date = ""
-       } = entryData;
        const entry = { title, description, date }
        
        return database.ref(`users/${uid}/entries`).push(entry).then((ref) => {
@@ -33,6 +28,10 @@ export const removeEntry = (id) => ({
 
 export const startRemoveEntry = (id) => {
     return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/entries/${id}`).remove().then(() => {
+            dispatch(removeEntry(id))
+        })
 
     }
 }
@@ -42,3 +41,33 @@ export const editEntry = (id, edits) => ({
     id,
     edits
 })
+
+export const startEditEntry = (id, edits) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/entries/${id}`).update(edits).then(() => {
+            dispatch(editEntry(id, edits))
+        })
+    }
+}
+
+export const getEntries = (entries) => ({
+    type: "GET_ENTRIES",
+    entries
+})
+
+export const startGetEntries = () => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/entries`).once("value").then((snapshot) => {
+            const entries = [];
+            snapshot.forEach((childSnapshot) => {
+                entries.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                })
+            })
+        dispatch(getEntries(entries));
+        })
+    }
+}

@@ -19,6 +19,8 @@ export default (state = entriesDefaultState, action) => {
                     return entry
                 }
             })
+        case "GET_ENTRIES":
+            return action.entries
         default:
             return state;
     }
