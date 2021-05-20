@@ -10,7 +10,16 @@ const AddEntryPage = (props) => {
         console.log(entry)
     }
     return (
-        <EntryForm onSubmit={onSubmit}/>
+        <div>
+            <div className="page-header">
+                <div className="content-container">
+                    <h1>Create a Post</h1>
+                </div>
+            </div>
+            <div className="content-container">
+                <EntryForm onSubmit={onSubmit}/>
+            </div>
+        </div>
     )
 }
 

@@ -17,10 +17,12 @@ const EditEntryPage = (props) => {
             <div>
                 <h1>Edit Post</h1>
             </div>
-            <EntryForm 
-                entry={props.entry}
-                onSubmit={onSubmit}    
-            />
+            <div className="content-container">
+                <EntryForm 
+                    entry={props.entry}
+                    onSubmit={onSubmit}    
+                />
+            </div>
             <button onClick={onRemove}>Remove</button>
         </div>
     )

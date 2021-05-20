@@ -43,7 +43,7 @@ const EntryForm = (props) => {
 
     return (
         <div>
-            <form className="entry-form" onSubmit={onSubmit}>
+            <form className="form" onSubmit={onSubmit}>
                 <input 
                     type="text"
                     placeholder="Title"
@@ -51,14 +51,14 @@ const EntryForm = (props) => {
                     value={entry.title}
                     onChange={onTitleChange}
                     required
-                    className="title-input"
+                    className="text-input"
                 />
-                <input 
+                <textarea 
                     type="text"
                     placeholder="Add a new post here"
                     value={entry.description}
                     onChange={onDescriptionChange}
-                    className="description-textarea"
+                    className="textarea"
                 />
                 <button>Create Post</button>
             </form>

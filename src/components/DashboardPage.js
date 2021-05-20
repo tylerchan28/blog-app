@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import EntryFilters from "./EntryFilters";
 import EntryList from "./EntryList";
 
 const DashboardPage = () => (
     <div>
-        <Link to="/post">Make a post</Link>
+        <EntryFilters />
         <EntryList />
     </div>
 )
