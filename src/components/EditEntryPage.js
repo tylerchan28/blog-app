@@ -11,19 +11,21 @@ const EditEntryPage = (props) => {
         props.removeEntry(props.entry.id)
         props.history.push("/dashboard")
     }
-
+    
     return (
         <div>
-            <div>
-                <h1>Edit Post</h1>
+            <div className="page-header">
+                <div className="content-container">  
+                    <h1>Edit Post</h1>
+                </div>  
             </div>
             <div className="content-container">
                 <EntryForm 
                     entry={props.entry}
                     onSubmit={onSubmit}    
                 />
+                <button className="button button--secondary" onClick={onRemove}>Remove Post</button>
             </div>
-            <button onClick={onRemove}>Remove</button>
         </div>
     )
 }

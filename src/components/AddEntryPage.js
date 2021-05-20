@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import EntryForm from "./EntryForm";
-import { addEntry } from "../actions/entries";
+import { startAddEntry } from "../actions/entries";
 
 const AddEntryPage = (props) => {
     const onSubmit = (entry) => {
-        props.addEntry(entry)
+        props.startAddEntry(entry)
         props.history.push("/dashboard")
         console.log(entry)
     }
@@ -24,7 +24,7 @@ const AddEntryPage = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) =>({
-    addEntry: (entry) => dispatch(addEntry(entry))
+    startAddEntry: (entry) => dispatch(startAddEntry(entry))
 })
 
 

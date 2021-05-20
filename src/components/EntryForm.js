@@ -60,7 +60,9 @@ const EntryForm = (props) => {
                     onChange={onDescriptionChange}
                     className="textarea"
                 />
-                <button>Create Post</button>
+                <div>
+                    <button className="button">Save Post</button>
+                </div>
             </form>
         </div>
     )

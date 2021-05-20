@@ -7,8 +7,8 @@ import EditEntryPage from "./../components/EditEntryPage";
 import Header from "./../components/Header";
 import LoginPage from "./../components/LoginPage";
 import NotFoundPage from "./../components/NotFoundPage";
-// import PrivateRoute from "./PrivateRoute";
-// import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 export const history = createBrowserHistory()
 
