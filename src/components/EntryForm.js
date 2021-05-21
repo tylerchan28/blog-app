@@ -29,7 +29,8 @@ const EntryForm = (props) => {
         const submittedEntry = { 
             title: entry.title, 
             description: entry.description,
-            date: dateCreated
+            date: dateCreated,
+            name: props.name
         }
         props.onSubmit(submittedEntry);
         setEntry({

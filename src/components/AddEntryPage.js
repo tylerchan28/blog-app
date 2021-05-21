@@ -2,8 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import EntryForm from "./EntryForm";
 import { startAddEntry } from "../actions/entries";
+import { firebase } from "../firebase/firebase"
 
 const AddEntryPage = (props) => {
+    var user = firebase.auth().currentUser;
+    var name = user.displayName;
+    
     const onSubmit = (entry) => {
         props.startAddEntry(entry)
         props.history.push("/dashboard")
@@ -16,7 +20,7 @@ const AddEntryPage = (props) => {
                 </div>
             </div>
             <div className="content-container">
-                <EntryForm onSubmit={onSubmit}/>
+                <EntryForm onSubmit={onSubmit} name={name}/>
             </div>
         </div>
     )

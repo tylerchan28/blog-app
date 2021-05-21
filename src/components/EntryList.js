@@ -13,7 +13,7 @@ const EntryList = (props) => (
                     </div>
                 ) : (
                     props.entries.map((entry) => {
-                        return <EntryListItem key={entry.id} {...entry}/>
+                        return <EntryListItem key={entry.id} {...entry} />
                 })
                 )
             }

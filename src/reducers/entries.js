@@ -12,8 +12,8 @@ export default (state = entriesDefaultState, action) => {
             return state.map((entry) => {
                 if (entry.id === action.id) {
                     return {
-                        ...entry,
-                        ...action.edits
+                        ...entry, 
+                        ...action.edits 
                     }     
                 } else {
                     return entry

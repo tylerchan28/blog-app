@@ -1,35 +1,38 @@
 import database from "../firebase/firebase";
 
+
 export const addEntry = (entry) => ({
     type: "ADD_ENTRY",
     entry
 })
 
-export const startAddEntry = ({ title="", description="", date="" } = entryData ) => {
-   return (dispatch, getState) => {
-       const uid = getState().auth.uid;
-       const entry = { title, description, date }
-       
-       return database.ref(`users/${uid}/entries`).push(entry).then((ref) => {
-         dispatch(addEntry({
-            id: ref.key,
-            ...entry
-         }))
-       })
-   }
-    
-
+export const startAddEntry = ({ title="", description="", date="", name="" } = entryData ) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        const entry = { title, description, date, name, uid }
+        return database.ref(`users/${uid}`).set({name}).then(() => {
+            return database.ref(`entries`).push(entry).then((ref) => {
+                dispatch(addEntry({
+                    ...entry,
+                    id: ref.key,
+                    uid
+                }))
+            })
+        })
+    }
 }
+
+
 
 export const removeEntry = (id) => ({
     type: "REMOVE_ENTRY",
-    id
+    id 
 })
 
 export const startRemoveEntry = (id) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
-        return database.ref(`users/${uid}/entries/${id}`).remove().then(() => {
+        return database.ref(`entries/${id}`).remove().then(() => {
             dispatch(removeEntry(id))
         })
 
@@ -44,8 +47,8 @@ export const editEntry = (id, edits) => ({
 
 export const startEditEntry = (id, edits) => {
     return (dispatch, getState) => {
-        const uid = getState().auth.uid;
-        return database.ref(`users/${uid}/entries/${id}`).update(edits).then(() => {
+        const uid = getState().auth.uid; // make changes, if authId === uid
+        return database.ref(`entries/${id}`).update(edits).then(() => {
             dispatch(editEntry(id, edits))
         })
     }
@@ -59,7 +62,7 @@ export const getEntries = (entries) => ({
 export const startGetEntries = () => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
-        return database.ref(`users/${uid}/entries`).once("value").then((snapshot) => {
+        return database.ref(`entries`).once("value").then((snapshot) => {
             const entries = [];
             snapshot.forEach((childSnapshot) => {
                 entries.push({
@@ -71,3 +74,5 @@ export const startGetEntries = () => {
         })
     }
 }
+
+ 
