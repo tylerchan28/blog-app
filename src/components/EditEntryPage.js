@@ -2,9 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { startEditEntry, startRemoveEntry } from "../actions/entries";
 import EntryForm from "./EntryForm";
+
 const EditEntryPage = (props) => {
-    const onSubmit = (entry) => {
-        props.startEditEntry(props.entry.id, entry)
+    const onSubmit = ({ title, description }) => {
+        props.startEditEntry(props.entry.id, { title, description })
         props.history.push("/dashboard")
     }
     const onRemove = () => {
@@ -22,7 +23,7 @@ const EditEntryPage = (props) => {
             <div className="content-container">
                 <EntryForm 
                     entry={props.entry}
-                    onSubmit={onSubmit}    
+                    onSubmit={onSubmit}  
                 />
                 <button className="button button--secondary" onClick={onRemove}>Remove Post</button>
             </div>
