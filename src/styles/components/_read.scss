@@ -1,0 +1,19 @@
+.read-description {
+    margin: $m-size auto;
+}
+
+.read-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.read-name {
+    color: gray
+}
+
+.read-title {
+    font-size: 24px;
+    margin-right: $s-size;
+}
+

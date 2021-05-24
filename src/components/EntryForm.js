@@ -25,7 +25,7 @@ const EntryForm = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const dateCreated = moment().format("l");
+        const dateCreated = moment().format("l, h:mm a");
         const submittedEntry = { 
             title: entry.title, 
             description: entry.description,

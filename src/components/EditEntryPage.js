@@ -21,6 +21,7 @@ const EditEntryPage = (props) => {
                 </div>  
             </div>
             <div className="content-container">
+                {`Readable at localhost:8080/read/${props.entry.id}`}
                 <EntryForm 
                     entry={props.entry}
                     onSubmit={onSubmit}  
