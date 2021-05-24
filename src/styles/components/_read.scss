@@ -1,15 +1,24 @@
+.read-container {
+    margin: $l-size auto;
+    max-width: 80rem;
+    padding: 0 $m-size;
+}
+
 .read-description {
-    margin: $m-size auto;
+    font-size: 1.8rem;
+    margin: $l-size auto;
 }
 
 .read-header {
-    align-items: center;
+    align-items: left;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-.read-name {
-    color: gray
+.read-header__item {
+    color: gray;
+    margin-top: $s-size;
 }
 
 .read-title {

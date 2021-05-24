@@ -1,18 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
+import CommentSection from "./CommentSection";
 
 const ReadPage = (props) => {
     return (
-        <div className="content-container">
+        <div className="read-container">
             <div className="read-header">
                 <div>
-                    <span className="read-title">{props.entry.title}</span> <span className="read-name">by {props.entry.name}</span>
+                    <span className="read-title">{props.entry.title}</span>
                 </div>
-                {props.entry.date}
+                <span className="read-header__item">by {props.entry.name}</span>
+                <span className="read-header__item">{props.entry.date}</span>
             </div>
-            <div className="read-description    ">
+            <div className="read-description">
                 {props.entry.description}
             </div>
+            <CommentSection/>
         </div>
     )
 }
