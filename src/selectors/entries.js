@@ -3,6 +3,6 @@ export default (entries, { text }) => {
         const textMatch = entry.title.toLowerCase().includes(text.toLowerCase())
         return textMatch
     }).sort((a, b) => {
-        return a.date < b.date ? -1 : 1;
+        return a.date > b.date ? -1 : 1;
     })
 }

@@ -10,7 +10,29 @@
     text-decoration: none;
 }
 
-.button--link { // keeps same values but can override
+
+.button--add {
+    float: right;
+}
+
+.button--add-comment {
+    background-color: #091947;
+    font-size: 1.4rem;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+.button--delete {
+    background-color: darken($light-grey, 30%);
+    font-size: 1.2rem;
+    padding: .8rem;
+}
+
+.button-edit {
+    color: lighten(black, 30%);
+    text-decoration: none;
+}
+
+.button--link { 
     background: none;
 }
 
@@ -18,6 +40,4 @@
     background-color: rgb(228, 100, 100)
 }
 
-.button--add {
-    float: right;
-}
+

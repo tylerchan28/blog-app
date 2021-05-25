@@ -46,7 +46,7 @@ const EntryForm = (props) => {
                     type="text"
                     placeholder="Title"
                     autoFocus
-                    value={entry.title}
+                    value={entry.title} 
                     onChange={onTitleChange}
                     required
                     className="text-input"

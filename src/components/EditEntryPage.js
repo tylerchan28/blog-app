@@ -6,13 +6,12 @@ import EntryForm from "./EntryForm";
 const EditEntryPage = (props) => {
     const onSubmit = ({ title, description }) => {
         props.startEditEntry(props.entry.id, { title, description })
-        props.history.push("/dashboard")
+        props.history.push(`/read/${props.entry.id}`)
     }
     const onRemove = () => {
         props.startRemoveEntry(props.entry.id)
         props.history.push("/dashboard")
     }
-    
     return (
         <div>
             <div className="page-header">
@@ -29,7 +28,7 @@ const EditEntryPage = (props) => {
                 <button className="button button--secondary" onClick={onRemove}>Remove Post</button>
             </div>
         </div>
-    )
+    )   
 }
 
 const mapStateToProps = (state, props) => {

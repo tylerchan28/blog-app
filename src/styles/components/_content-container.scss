@@ -1,5 +1,9 @@
 .content-container {
     margin: 0 auto; // redistribute left and right space evenly
-    max-width: 80rem;
+    max-width: 180rem;
     padding: 0 $m-size;
+}
+
+.content-container--comment {
+    padding: $s-size $l-size $l-size $l-size;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import EntryForm from "./EntryForm";
 import { startAddEntry } from "../actions/entries";
-import { firebase } from "../firebase/firebase"
+import { firebase } from "../firebase/firebase";
 
 const AddEntryPage = (props) => {
     var user = firebase.auth().currentUser;
