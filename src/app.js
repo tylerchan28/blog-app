@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import { startGetEntries } from "./actions/entries";
+import { startGetComments } from "./actions/comments.js";
 import { login, logout } from "./actions/auth";
 import "normalize.css/normalize.css"
 import "./styles/styles.scss";
@@ -33,12 +34,18 @@ ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         store.dispatch(login(user.uid));
-        store.dispatch(startGetEntries()).then(() => {
-        renderApp();
-            if (history.location.pathname === "/") {
-                history.push("/dashboard")
-            }
-        })
+        // store.dispatch(startGetEntries()).then(() => {
+        // renderApp();
+        //     if (history.location.pathname === "/") {
+        //         history.push("/dashboard")
+        //     }
+        // })
+        store.dispatch(startGetEntries()).then(store.dispatch(startGetComments())).then(() => {
+            renderApp();
+                if (history.location.pathname === "/") {
+                    history.push("/dashboard")
+                }
+            })
     } else {
         store.dispatch(logout());
         renderApp();

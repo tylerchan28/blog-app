@@ -12,7 +12,7 @@ const CommentList = (props) => (
                     </div>
                 ) : (
                     props.comments.map((comment) => {
-                        return <CommentItem key={comment.id} {...comment} />
+                        return <CommentItem key={comment.commentId} {...comment} />
                 })
                 )
             }
@@ -20,10 +20,9 @@ const CommentList = (props) => (
     </div>
 )
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
     return {
-        comments: state.comments
+        comments: state.comments.filter((comment) => comment.postId === props.id)
     }
 }
-
 export default connect(mapStateToProps)(CommentList);

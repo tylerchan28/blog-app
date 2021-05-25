@@ -15,7 +15,7 @@ const ReadPage = (props) => {
             <div className="read-description">
                 {props.entry.description}
             </div>
-            <CommentSection/>
+            <CommentSection id={props.entry.id}/>
         </div>
     )
 }

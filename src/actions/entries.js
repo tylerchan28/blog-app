@@ -30,8 +30,7 @@ export const removeEntry = (id) => ({
 })
 
 export const startRemoveEntry = (id) => {
-    return (dispatch, getState) => {
-        const uid = getState().auth.uid;
+    return (dispatch) => {
         return database.ref(`entries/${id}`).remove().then(() => {
             dispatch(removeEntry(id))
         })
@@ -46,8 +45,7 @@ export const editEntry = (id, edits) => ({
 })
 
 export const startEditEntry = (id, edits) => {
-    return (dispatch, getState) => {
-        const uid = getState().auth.uid; // make changes, if authId === uid
+    return (dispatch) => {
         return database.ref(`entries/${id}`).update(edits).then(() => {
             dispatch(editEntry(id, edits))
         })
@@ -60,8 +58,7 @@ export const getEntries = (entries) => ({
 })
 
 export const startGetEntries = () => {
-    return (dispatch, getState) => {
-        const uid = getState().auth.uid;
+    return (dispatch) => {
         return database.ref(`entries`).once("value").then((snapshot) => {
             const entries = [];
             snapshot.forEach((childSnapshot) => {

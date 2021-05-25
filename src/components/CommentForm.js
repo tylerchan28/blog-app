@@ -19,7 +19,8 @@ const CommentForm = (props) => {
             content: comment,
             date: dateCreated,
             name: props.name,
-            id: uuid()
+            postId: props.id,
+            commentId: uuid()
         }
         props.startAddComment(submittedComment)
         setComment("");
@@ -45,5 +46,6 @@ const CommentForm = (props) => {
 const mapDispatchToProps = (dispatch) => ({
     startAddComment: (comment) => dispatch(startAddComment(comment))
 })
+
 
 export default connect(undefined, mapDispatchToProps)(CommentForm);
