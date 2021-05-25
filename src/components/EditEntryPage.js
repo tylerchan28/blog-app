@@ -6,7 +6,7 @@ import EntryForm from "./EntryForm";
 const EditEntryPage = (props) => {
     const onSubmit = ({ title, description }) => {
         props.startEditEntry(props.entry.id, { title, description })
-        props.history.push("/dashboard")
+        props.history.push(`/read/${props.entry.id}`)
     }
     const onRemove = () => {
         props.startRemoveEntry(props.entry.id)

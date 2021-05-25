@@ -16,9 +16,9 @@
 }
 
 .button--add-comment {
-    background-color: #364051;
+    background-color: #091947;
     font-size: 1.4rem;
-    padding: 1rem;
+    padding: 1rem 2rem 1rem 2rem;
 }
 
 .button--delete {
@@ -27,6 +27,10 @@
     padding: .8rem;
 }
 
+.button-edit {
+    color: lighten(black, 30%);
+    text-decoration: none;
+}
 
 .button--link { 
     background: none;
