@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { startAddComment } from "../actions/comments";
 import moment from "moment";
-import uuid from "uuid";
+import uniqid from "uniqid";
 
 const CommentForm = (props) => {
     const [comment, setComment] = useState("");
@@ -18,9 +18,10 @@ const CommentForm = (props) => {
         const submittedComment = {
             content: comment,
             date: dateCreated,
-            name: props.name,
+            userName: props.name,
             postId: props.id,
-            commentId: uuid()
+            commentId: uniqid(),
+            uid: props.uid
         }
         props.startAddComment(submittedComment)
         setComment("");
@@ -28,15 +29,18 @@ const CommentForm = (props) => {
 
     return (
         <div>
-            <form onSubmit={onSubmit}>
-                <input 
+            <form className="comment-form" onSubmit={onSubmit}>
+                <textarea 
+                    className="textarea"
                     type="text"
                     placeholder="Add a comment"
                     onChange={onCommentChange}
                     value={comment}
                     required
                 />
-                <button>Add comment</button>
+                <div className="comment-button-container">
+                    <button className="button button--add-comment">Save</button>
+                </div>
             </form>
         </div>
     )

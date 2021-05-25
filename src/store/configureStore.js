@@ -17,6 +17,5 @@ export default () => {
         }),
         composeEnhancers(applyMiddleware(thunk))
     );
-    store.subscribe(() => { console.log(store.getState()) } )
     return store;  
 }

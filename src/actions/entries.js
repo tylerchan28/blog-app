@@ -1,6 +1,5 @@
 import database from "../firebase/firebase";
 
-
 export const addEntry = (entry) => ({
     type: "ADD_ENTRY",
     entry

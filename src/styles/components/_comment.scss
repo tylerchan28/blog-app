@@ -1,0 +1,34 @@
+.comment-container {
+    background-color: $light-grey;
+    border: 1px solid darken($light-grey, 40%);
+    max-width: 80rem;
+    padding: 0, $m-size;
+}
+
+.comment-button-container {
+    padding: 1rem 0 0 1rem;
+}
+
+.comment-content {
+    word-break: break-all;
+    white-space: pre-line;
+}
+
+.comment-item-container {
+    border: 1px solid darken($light-grey, 10%);
+    padding: $m-size;
+    width: 100%;
+}
+
+.comment-items {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.2rem;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 $m-size 0;
+}
+

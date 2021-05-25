@@ -1,3 +1,4 @@
+  
 import React from "react";
 import { firebase } from "../firebase/firebase"
 import { Link } from "react-router-dom";
@@ -23,14 +24,14 @@ const EntryListItem = ({ title, date, id, name, uid}) => {
     } else {
         return (
             <Link className="list-item" to={`/read/${id}`}>
-            <div className="list-group">
-                <div>
-                <h3 className="list-item__title">{ title }</h3>
-                <p className="list-item__date">by: {name}</p>
+                <div className="list-group">
+                    <div>
+                    <h3 className="list-item__title">{ title }</h3>
+                    <p className="list-item__date">by: {name}</p>
+                    </div>
+                    <p className="list-item__date">{ date }</p>
                 </div>
-                <p className="list-item__date">{ date }</p>
-            </div>
-        </Link>
+            </Link>
         )
     }
 }

@@ -6,9 +6,10 @@ import { firebase } from "../firebase/firebase";
 const CommentSection = (props) => { 
     var user = firebase.auth().currentUser;
     var name = user.displayName;
+    var uid = user.uid;
     return (
-        <div>
-            <CommentForm name={name} id={props.id}/>
+        <div className="comment-container">
+            <CommentForm name={name} id={props.id} uid={uid}/>
             <CommentList id={props.id}/>
         </div>
     )

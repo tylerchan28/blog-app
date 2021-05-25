@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 import CommentSection from "./CommentSection";
 
 const ReadPage = (props) => {
+    
     return (
         <div className="read-container">
             <div className="read-header">
                 <div>
                     <span className="read-title">{props.entry.title}</span>
                 </div>
-                <span className="read-header__item">by {props.entry.name}</span>
-                <span className="read-header__item">{props.entry.date}</span>
+                <span className="read-header__item">submitted by {props.entry.name} at {props.entry.date}</span>
             </div>
             <div className="read-description">
                 {props.entry.description}

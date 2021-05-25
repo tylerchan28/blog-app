@@ -1,12 +1,15 @@
 .read-container {
+    border: 1px solid darken($light-grey, 30%);
+    border-radius: 10px;
     margin: $l-size auto;
     max-width: 80rem;
-    padding: 0 $m-size;
+    padding: $l-size;
 }
 
 .read-description {
     font-size: 1.8rem;
     margin: $l-size auto;
+    padding: $m-size;
 }
 
 .read-header {

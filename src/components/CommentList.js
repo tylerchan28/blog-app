@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import CommentItem from "./CommentItem";
 
 const CommentList = (props) => (
-    <div className="content-container">
+    <div className="content-container content-container--comment">
         <div className="list-body">
             {
                 props.comments.length === 0 ? (
@@ -11,8 +11,15 @@ const CommentList = (props) => (
                         <span className="list-item">No comments.</span>
                     </div>
                 ) : (
-                    props.comments.map((comment) => {
-                        return <CommentItem key={comment.commentId} {...comment} />
+                    props.comments.map((commentData) => {
+                        return <CommentItem 
+                            key={commentData.commentId} 
+                            content={commentData.content}
+                            id={commentData.id}
+                            date={commentData.date}
+                            name={commentData.userName}
+                            uid={commentData.uid} 
+                        />
                 })
                 )
             }
@@ -22,7 +29,9 @@ const CommentList = (props) => (
 
 const mapStateToProps = (state, props) => {
     return {
-        comments: state.comments.filter((comment) => comment.postId === props.id)
+        comments: state.comments.filter((comment) => comment.postId === props.id).sort((a, b) => {
+            return a.date < b.date ? 1 : -1
+        })
     }
 }
 export default connect(mapStateToProps)(CommentList);
