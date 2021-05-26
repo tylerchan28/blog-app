@@ -10,6 +10,8 @@
     font-size: 1.8rem;
     margin: $l-size auto;
     padding: $m-size;
+    white-space: pre-line;
+    word-break: break-all;
 }
 
 .read-header {
