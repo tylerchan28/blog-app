@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { startAddComment } from "../actions/comments";
 import moment from "moment";
-import uniqid from "uniqid";
 
 const CommentForm = (props) => {
     const [comment, setComment] = useState("");
@@ -20,7 +19,6 @@ const CommentForm = (props) => {
             date: dateCreated,
             userName: props.name,
             postId: props.id,
-            commentId: uniqid(),
             uid: props.uid
         }
         props.startAddComment(submittedComment)
