@@ -11,7 +11,7 @@ export const startAddComment = ({ content="", date="", userName="", postId="", c
             return database.ref(`comments`).push(comment).then((ref) => {
                 dispatch(addComment({
                     ...comment,
-                    id: ref.key
+                    id: ref.key,
                     //add uid here and in comment
                 }))
             })
