@@ -6,11 +6,11 @@ import EntryList from "./EntryList";
 const DashboardPage = () => {
     return ( 
         <div>
-            <div className="content-container">
+            <div className="content-container content-container--filter">
                 <Link className="button button--add" to="/post">Make a post</Link>
+                <EntryFilters />
             </div>  
             <div className="list-entries">
-                <EntryFilters />
                 <EntryList />
             </div>
         </div>
