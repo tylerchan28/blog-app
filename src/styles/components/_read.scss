@@ -1,9 +1,12 @@
 .read-container {
     border: 1px solid darken($light-grey, 30%);
     border-radius: 10px;
-    margin: $l-size auto;
+    margin: $l-size $l-size;
     max-width: 180rem;
     padding: $l-size;
+    @media (min-width: 1890px) {
+        margin: $l-size auto;
+    }
 }
 
 .read-description {

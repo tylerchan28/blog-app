@@ -11,8 +11,12 @@
 }
 
 .header-message {
-    color: white;
-    font-size: large;
+    font-size: 0rem;
+    @media (min-width: $desktop-breakpoint) {
+        color: white;
+        font-size: $font-size-large;
+    }
+    
 }
 
 .header__title {

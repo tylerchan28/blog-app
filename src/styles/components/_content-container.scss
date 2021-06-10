@@ -7,3 +7,12 @@
 .content-container--comment {
     padding: $s-size $l-size $l-size $l-size;
 }
+
+.filter-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: $m-size auto;
+}
+
